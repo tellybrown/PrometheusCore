@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>PrometheusCore</id>
+    <version>$version$</version>
+    <title>Prometheus Core</title>
+    <authors>Telly Brown</authors>
+    <owners>Telly Brown</owners>
+    <licenseUrl>https://github.com/tellybrown/PrometheusCore/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/tellybrown/PrometheusCore</projectUrl>
+    <iconUrl>https://prometheus.io/assets/prometheus_logo_grey.svg</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A Prometheus Metrics library written for .net core</description>
+    <releaseNotes></releaseNotes>
+    <tags>prometheus</tags>
+  </metadata>
+  <files>
+	<file src="PrometheusCore\bin\$configuration$\netstandard1.3\PrometheusCore.dll" target="lib\netstandard1.3\PrometheusCore.dll" />
+	<file src="PrometheusCore\bin\$configuration$\netstandard1.4\PrometheusCore.dll" target="lib\netstandard1.4\PrometheusCore.dll" />
+	<file src="PrometheusCore\bin\$configuration$\netstandard1.5\PrometheusCore.dll" target="lib\netstandard1.5\PrometheusCore.dll" />
+	<file src="PrometheusCore\bin\$configuration$\netstandard1.6\PrometheusCore.dll" target="lib\netstandard1.6\PrometheusCore.dll" />
+	<file src="PrometheusCore\bin\$configuration$\netstandard2.0\PrometheusCore.dll" target="lib\netstandard2.0\PrometheusCore.dll" />
+  </files>
+</package>
