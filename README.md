@@ -88,7 +88,7 @@ public class TestCollectors : ITestCollectors
 
     public HomeCollectors(ICollectorFactory collectorFactory)
     {
-        collectorFactory.InjectCollectors<IHomeCollectors, HomeCollectors>(this);
+        collectorFactory.InjectCollectors<ITestCollectors, TestCollectors>(this);
     }
 }
 public class TestController
