@@ -17,7 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetExample", "AspNetExam
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EC679DDD-772F-4130-AC9E-ED48CDA1B0D8}"
 	ProjectSection(SolutionItems) = preProject
+		build.bat = build.bat
+		key.snk = key.snk
 		LICENSE = LICENSE
+		PrometheusCore.AspNet.nuspec = PrometheusCore.AspNet.nuspec
+		PrometheusCore.Hosting.nuspec = PrometheusCore.Hosting.nuspec
 	EndProjectSection
 EndProject
 Global
