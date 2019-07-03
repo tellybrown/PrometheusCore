@@ -7,15 +7,15 @@ A BIG thanks to those at Prometheus-net for their library but its usage just was
 
 # Installation
 
-Nuget package for general use and metrics export : [prometheus-net](https://www.nuget.org/packages/prometheusCore)
+Nuget package for general use and metrics export : [prometheusCore](https://www.nuget.org/packages/prometheusCore)
 
 >Install-Package prometheusCore
 
-Nuget package for ASP.NET Core middleware and metrics api controller: [prometheus-net.AspNetCore](https://www.nuget.org/packages/prometheusCore.AspNet)
+Nuget package for ASP.NET Core middleware and metrics api controller: [prometheusCore.AspNet](https://www.nuget.org/packages/prometheusCore.AspNet)
 
 >Install-Package prometheusCore.AspNet
 
-Nuget package for Hosting in a console service: [prometheus-net.AspNetCore](https://www.nuget.org/packages/prometheusCore.Hosting)
+Nuget package for Hosting in a console service: [prometheusCore.Hosting](https://www.nuget.org/packages/prometheusCore.Hosting)
 
 >Install-Package prometheusCore.Hosting
 

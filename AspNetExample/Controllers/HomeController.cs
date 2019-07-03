@@ -16,10 +16,17 @@ namespace AspNetExample.Controllers
         {
             _collectors = collectors;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             _collectors.PageViewsCount.Inc();
+            await Delay();
             return View();
+        }
+        private async Task Delay()
+        {
+            Random r = new Random();
+            var ms = r.Next(0, 30000);
+            await Task.Delay(ms);
         }
 
         public IActionResult Privacy()

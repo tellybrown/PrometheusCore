@@ -11,9 +11,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrometheusCore.AspNet", "Pr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrometheusCore.Hosting", "PrometheusCore.Hosting\PrometheusCore.Hosting.csproj", "{82A961F6-BCDE-4761-9B57-CD3CB9123818}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrometheusCore.Abstractions", "PrometheusCore.Abstractions\PrometheusCore.Abstractions.csproj", "{8BAC7F12-D381-4E8E-BEFA-BB111F39DA06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrometheusCore.Abstractions", "PrometheusCore.Abstractions\PrometheusCore.Abstractions.csproj", "{8BAC7F12-D381-4E8E-BEFA-BB111F39DA06}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetExample", "AspNetExample\AspNetExample.csproj", "{A577F701-CD14-4A0D-BEB6-971E0820086A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EC679DDD-772F-4130-AC9E-ED48CDA1B0D8}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
