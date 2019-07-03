@@ -11,11 +11,11 @@ Nuget package for general use and metrics export : [prometheusCore](https://www.
 
 >Install-Package prometheusCore
 
-Nuget package for ASP.NET Core middleware and metrics api controller: [prometheusCore.AspNet](https://www.nuget.org/packages/prometheusCore.AspNet)
+Nuget package for ASP.NET Core middleware and metrics api controller: [prometheusCore.AspNetCore](https://www.nuget.org/packages/prometheusCore.AspNet)
 
 >Install-Package prometheusCore.AspNet
 
-Nuget package for Hosting in a console service: [prometheusCore.Hosting](https://www.nuget.org/packages/prometheusCore.Hosting)
+Nuget package for Hosting in a console service: [prometheusCore.AspNetCore](https://www.nuget.org/packages/prometheusCore.Hosting)
 
 >Install-Package prometheusCore.Hosting
 
@@ -88,7 +88,7 @@ public class TestCollectors : ITestCollectors
 
     public HomeCollectors(ICollectorFactory collectorFactory)
     {
-        collectorFactory.InjectCollectors<IHomeCollectors, HomeCollectors>(this);
+        collectorFactory.InjectCollectors<ITestCollectors, TestCollectors>(this);
     }
 }
 public class TestController

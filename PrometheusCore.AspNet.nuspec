@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>PrometheusCore.AspNet</id>
+    <version>$version$</version>
+    <title>Prometheus Core AspNet</title>
+    <authors>Telly Brown</authors>
+    <owners>Telly Brown</owners>
+    <licenseUrl>https://github.com/tellybrown/PrometheusCore/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/tellybrown/PrometheusCore</projectUrl>
+    <iconUrl>https://prometheus.io/assets/prometheus_logo_grey.svg</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A Prometheus Metrics library written for .net core</description>
+    <releaseNotes></releaseNotes>
+    <tags>prometheus</tags>
+  </metadata>
+  <files>
+	<file src="PrometheusCore\bin\$configuration$\netstandard2.0\PrometheusCore.dll" target="lib\netstandard2.0\PrometheusCore.dll" />
+	<file src="PrometheusCore.Abstractions\bin\$configuration$\netstandard2.0\PrometheusCore.Abstractions.dll" target="lib\netstandard2.0\PrometheusCore.Abstractions.dll" />
+	<file src="PrometheusCore.AspNet\bin\$configuration$\netstandard2.0\PrometheusCore.AspNet.dll" target="lib\netstandard2.0\PrometheusCore.AspNet.dll" />
+  </files>
+</package>
