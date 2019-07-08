@@ -5,7 +5,9 @@
     <RootNamespace>PrometheusCore</RootNamespace>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\key.snk</AssemblyOriginatorKeyFile>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <NuspecFile>..\PrometheusCore.Abstractions.nuspec</NuspecFile>
+    <NuspecProperties>version=$(PackageVersion)</NuspecProperties>
+
   </PropertyGroup>
 
 </Project>
