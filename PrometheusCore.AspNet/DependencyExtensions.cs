@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using PrometheusCore;
+using PrometheusCore.Collectors;
 using PrometheusCore.AspNet;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -17,7 +18,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddTransient<IHistogram, Histogram>();
 
             return new CollectorsBuilder(services)
-                    .Register<IRequestStatistics, RequestStatistics>();
+                    .Register<IRequestCollectors, RequestCollectors>();
         }
         public static IApplicationBuilder UsePrometheus(this IApplicationBuilder app)
         {

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PrometheusCore.AspNet
 {
-    public interface IRequestStatistics
+    public interface IRequestCollectors
     {
         [CollectorRegistry("aspnet_requests_uri_active", "Number of active requests per uri", "method", "uri")]
         ICollectorBuilder<IGauge> ActiveUriRequests { get;  }

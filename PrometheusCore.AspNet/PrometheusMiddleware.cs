@@ -2,31 +2,32 @@
 using PrometheusCore;
 using System;
 using System.Threading.Tasks;
+using PrometheusCore.Collectors;
 
 namespace PrometheusCore.AspNet
 {
     internal class PrometheusMiddleware : IPrometheusMiddleware
     {
-        private IRequestStatistics _requestStatistics;
-        public PrometheusMiddleware(IRequestStatistics requestStatistics)
+        private IRequestCollectors _requestCollectors;
+        public PrometheusMiddleware(IRequestCollectors requestCollectors)
         {
-            _requestStatistics = requestStatistics;
+            _requestCollectors = requestCollectors;
         }
         public async Task Handle(HttpContext context, Func<Task> next)
         {
             var labels = GetLabels(context);
             try
             {
-                using (var timer = new TimerScope(_requestStatistics.RequestDuration.WithLabels(labels)))
+                using (var timer = new TimerScope(_requestCollectors.RequestDuration.WithLabels(labels)))
                 {
-                    _requestStatistics.ActiveUriRequests.WithLabels(labels).Inc();
-                    _requestStatistics.TotalUriRequestCount.WithLabels(labels).Inc();
+                    _requestCollectors.ActiveUriRequests.WithLabels(labels).Inc();
+                    _requestCollectors.TotalUriRequestCount.WithLabels(labels).Inc();
                     await next();
                 }
             }
             finally
             {
-                _requestStatistics.ActiveUriRequests.WithLabels(labels).Dec();
+                _requestCollectors.ActiveUriRequests.WithLabels(labels).Dec();
             }
         }
         private string[] GetLabels(HttpContext context)

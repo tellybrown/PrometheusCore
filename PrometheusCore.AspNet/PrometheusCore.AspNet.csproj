@@ -12,6 +12,7 @@
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.0" />
+    <ProjectReference Include="..\PrometheusCore.Collectors\PrometheusCore.Collectors.csproj" />
     <ProjectReference Include="..\PrometheusCore\PrometheusCore.csproj" />
   </ItemGroup>
 
