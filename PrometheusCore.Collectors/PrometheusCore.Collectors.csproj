@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\key.snk</AssemblyOriginatorKeyFile>
-    <NuspecFile>..\PrometheusCore.Collections.nuspec</NuspecFile>
+    <NuspecFile>..\PrometheusCore.Collectors.nuspec</NuspecFile>
     <NuspecProperties>version=$(PackageVersion)</NuspecProperties>
   </PropertyGroup>
 
