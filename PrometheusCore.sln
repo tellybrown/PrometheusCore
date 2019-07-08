@@ -20,8 +20,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		build.bat = build.bat
 		key.snk = key.snk
 		LICENSE = LICENSE
+		PrometheusCore.Abstractions.nuspec = PrometheusCore.Abstractions.nuspec
 		PrometheusCore.AspNet.nuspec = PrometheusCore.AspNet.nuspec
+		PrometheusCore.Collectors.nuspec = PrometheusCore.Collectors.nuspec
 		PrometheusCore.Hosting.nuspec = PrometheusCore.Hosting.nuspec
+		PrometheusCore.nuspec = PrometheusCore.nuspec
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrometheusCore.Collectors", "PrometheusCore.Collectors\PrometheusCore.Collectors.csproj", "{9B964DF4-6BF9-4D21-BD58-D5DBE41E7F0F}"

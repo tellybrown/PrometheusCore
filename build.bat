@@ -10,8 +10,12 @@ if not "%PackageVersion%" == "" (
    set version=%PackageVersion%
 )
 
-mkdir Build.AspNet
-mkdir Build.Hosting
+mkdir Build
 dotnet build PrometheusCore.sln -c %config%
-dotnet pack PrometheusCore.AspNet\PrometheusCore.AspNet.csproj /p:PackageVersion=%version% -o .\..\Build.AspNet
-dotnet pack PrometheusCore.Hosting\PrometheusCore.Hosting.csproj /p:PackageVersion=%version% -o .\..\Build.Hosting
+
+dotnet pack PrometheusCore.Abstractions\PrometheusCore.Abstractions.csproj /p:PackageVersion=%version% -o .\..\Build
+dotnet pack PrometheusCore\PrometheusCore.csproj /p:PackageVersion=%version% -o .\..\Build
+dotnet pack PrometheusCore.Collectors\PrometheusCore.Collectors.csproj /p:PackageVersion=%version% -o .\..\Build
+
+dotnet pack PrometheusCore.AspNet\PrometheusCore.AspNet.csproj /p:PackageVersion=%version% -o .\..\Build
+dotnet pack PrometheusCore.Hosting\PrometheusCore.Hosting.csproj /p:PackageVersion=%version% -o .\..\Build

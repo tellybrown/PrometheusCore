@@ -1,24 +1,23 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>PrometheusCore.Hosting</id>
+    <id>PrometheusCore</id>
     <version>$version$</version>
-    <title>Prometheus Core Hosting</title>
+    <title>Prometheus Core</title>
     <authors>Telly Brown</authors>
     <owners>Telly Brown</owners>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/tellybrown/PrometheusCore</projectUrl>
     <iconUrl>https://prometheus.io/assets/prometheus_logo_grey.svg</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>A Prometheus Metrics library written for .net core hosted services</description>
+    <description>A Prometheus Metrics library written for .net core asp.net website or webservice</description>
     <releaseNotes></releaseNotes>
     <tags>prometheus</tags>
     <dependencies>
       <dependency id="PrometheusCore.Abstractions" version="$version$" />
-      <dependency id="PrometheusCore" version="$version$" />
     </dependencies>
   </metadata>
   <files>
-    <file src="PrometheusCore.Hosting\bin\release\netstandard2.0\PrometheusCore.Hosting.dll" target="lib\netstandard2.0\PrometheusCore.Hosting.dll" />
+    <file src="PrometheusCore\bin\release\netstandard2.0\PrometheusCore.dll" target="lib\netstandard2.0\PrometheusCore.dll" />
   </files>
 </package>
