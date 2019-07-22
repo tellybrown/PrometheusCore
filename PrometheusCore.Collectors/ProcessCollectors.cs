@@ -1,5 +1,4 @@
-﻿using PrometheusCore;
-using System;
+﻿using System;
 using System.Diagnostics;
 
 namespace PrometheusCore.Collectors
@@ -7,14 +6,14 @@ namespace PrometheusCore.Collectors
     public class ProcessCollectors : IProcessCollectors
     {
         public ICollectorBuilder<ICounter> CollectionCounts { get; private set; }
-        public IGauge StartTime { get; private set; }
-        public ICounter CpuTotal { get; private set; }
-        public IGauge VirtualMemorySize { get; private set; }
-        public IGauge WorkingSet { get; private set; }
-        public IGauge PrivateMemorySize { get; private set; }
-        public IGauge OpenHandles { get; private set; }
-        public IGauge NumThreads { get; private set; }
-        public IGauge TotalMemory { get; private set; }
+        public ICollectorBuilder<IGauge> StartTime { get; private set; }
+        public ICollectorBuilder<ICounter> CpuTotal { get; private set; }
+        public ICollectorBuilder<IGauge> VirtualMemorySize { get; private set; }
+        public ICollectorBuilder<IGauge> WorkingSet { get; private set; }
+        public ICollectorBuilder<IGauge> PrivateMemorySize { get; private set; }
+        public ICollectorBuilder<IGauge> OpenHandles { get; private set; }
+        public ICollectorBuilder<IGauge> NumThreads { get; private set; }
+        public ICollectorBuilder<IGauge> TotalMemory { get; private set; }
 
         private readonly Process _process;
         public ProcessCollectors(ICollectorFactory collectorFactory)
@@ -24,7 +23,11 @@ namespace PrometheusCore.Collectors
             collectorFactory.AddBeforeCollectCallback(RefreshProcessCallback);
 
             var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-            StartTime.Set((_process.StartTime.ToUniversalTime() - epoch).TotalSeconds);
+            StartTime.WithLabels(GetLabels()).Set((_process.StartTime.ToUniversalTime() - epoch).TotalSeconds);
+        }
+        private string[] GetLabels()
+        {
+            return new string[] { _process.ProcessName };
         }
 
         public void RefreshProcessCallback()
@@ -35,18 +38,18 @@ namespace PrometheusCore.Collectors
 
                 for (var gen = 0; gen <= GC.MaxGeneration; gen++)
                 {
-                    var collectionCount = CollectionCounts.WithLabels(gen.ToString());
+                    var collectionCount = CollectionCounts.WithLabels(_process.ProcessName, gen.ToString());
                     collectionCount.Inc(GC.CollectionCount(gen) - collectionCount.Value);
                 }
 
-                TotalMemory.Set(GC.GetTotalMemory(false));
-                CpuTotal.Inc(Math.Max(0, _process.TotalProcessorTime.TotalSeconds - CpuTotal.Value));
-                OpenHandles.Set(_process.HandleCount);
-                NumThreads.Set(_process.Threads.Count);
+                TotalMemory.WithLabels(GetLabels()).Set(GC.GetTotalMemory(false));
+                CpuTotal.WithLabels(GetLabels()).Inc(Math.Max(0, _process.TotalProcessorTime.TotalSeconds - CpuTotal.WithLabels(GetLabels()).Value));
+                OpenHandles.WithLabels(GetLabels()).Set(_process.HandleCount);
+                NumThreads.WithLabels(GetLabels()).Set(_process.Threads.Count);
 
-                VirtualMemorySize.Set(_process.VirtualMemorySize64);
-                WorkingSet.Set(_process.WorkingSet64);
-                PrivateMemorySize.Set(_process.PrivateMemorySize64);
+                VirtualMemorySize.WithLabels(GetLabels()).Set(_process.VirtualMemorySize64);
+                WorkingSet.WithLabels(GetLabels()).Set(_process.WorkingSet64);
+                PrivateMemorySize.WithLabels(GetLabels()).Set(_process.PrivateMemorySize64);
             }
             catch (Exception)
             {
