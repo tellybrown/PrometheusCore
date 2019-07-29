@@ -25,12 +25,12 @@ namespace PrometheusCore
             {
                 try
                 {
-                    _lock.EnterReadLock();
+                    EnterReadLock();
                     return _value;
                 }
                 finally
                 {
-                    _lock.ExitReadLock();
+                    ExitReadLock();
                 }
             }
         }
@@ -44,12 +44,12 @@ namespace PrometheusCore
 
             try
             {
-                _lock.EnterWriteLock();
+                EnterWriteLock();
                 _value += increment;
             }
             finally
             {
-                _lock.ExitWriteLock();
+                ExitWriteLock();
             }
         }
     }

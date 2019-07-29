@@ -6,9 +6,9 @@ namespace PrometheusCore.Collectors
 {
     public class QueryCollectors : IQueryCollectors
     {
-        public ICollectorBuilder<IHistogram> Duration { get; }
-        public ICollectorBuilder<ICounter> Count { get; }
-        public ICollectorBuilder<ICounter> Error { get; }
+        public ICollectorBuilder<IHistogram> Duration { get; private set; }
+        public ICollectorBuilder<ICounter> Count { get; private set; }
+        public ICollectorBuilder<ICounter> Error { get; private set; }
 
         public QueryCollectors(ICollectorFactory collectorFactory)
         {

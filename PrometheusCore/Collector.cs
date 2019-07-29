@@ -9,7 +9,7 @@ namespace PrometheusCore
 {
     public abstract class Collector : ICollector
     {
-        protected readonly ReaderWriterLockSlim _lock;
+        private readonly SemaphoreSlim _lock;
         protected readonly byte[] _identifierBytes;
 
         public string Identifier { get; }
@@ -26,12 +26,29 @@ namespace PrometheusCore
                 throw new ArgumentException($"Collector name '{name}' does not match regex '{ValidCollectorNameExpression}'.");
             }
 
-            _lock = new ReaderWriterLockSlim();
+            _lock = new SemaphoreSlim(2);
             Labels = labels;
             Name = name;
             Identifier = CollectorFactory.CreateIdentifier(name, labels);
 
             _identifierBytes = Constants.ExportEncoding.GetBytes(Identifier + " ");
+        }
+        protected void EnterReadLock()
+        {
+            _lock.Wait();
+        }
+        protected void ExitReadLock()
+        {
+            _lock.Release();
+        }
+        protected void EnterWriteLock()
+        {
+            _lock.Wait();
+            _lock.Wait();
+        }
+        protected void ExitWriteLock()
+        {
+            _lock.Release(2);
         }
         public abstract Task SerializeAsync(Stream stream);
         protected async Task SerializePairAsync(Stream stream, byte[] identifierBytes, string value)

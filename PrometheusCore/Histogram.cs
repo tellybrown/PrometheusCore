@@ -69,12 +69,12 @@ namespace PrometheusCore
             {
                 try
                 {
-                    _lock.EnterReadLock();
+                    EnterReadLock();
                     return _sum;
                 }
                 finally
                 {
-                    _lock.ExitReadLock();
+                    ExitReadLock();
                 }
             }
         }
@@ -84,12 +84,12 @@ namespace PrometheusCore
             {
                 try
                 {
-                    _lock.EnterReadLock();
+                    EnterReadLock();
                     return _count;
                 }
                 finally
                 {
-                    _lock.ExitReadLock();
+                    ExitReadLock();
                 }
             }
         }
@@ -99,12 +99,12 @@ namespace PrometheusCore
             {
                 try
                 {
-                    _lock.EnterReadLock();
+                    EnterReadLock();
                     return _buckets[index].Count;
                 }
                 finally
                 {
-                    _lock.ExitReadLock();
+                    ExitReadLock();
                 }
             }
         }
@@ -113,7 +113,7 @@ namespace PrometheusCore
         {
             try
             {
-                _lock.EnterReadLock();
+                EnterReadLock();
 
                 for (int i = 0; i < _buckets.Length; i++)
                 {
@@ -125,7 +125,7 @@ namespace PrometheusCore
             }
             finally
             {
-                _lock.ExitReadLock();
+                ExitReadLock();
             }
         }
         public void Observe(double amt)
@@ -136,7 +136,7 @@ namespace PrometheusCore
             }
             try
             {
-                _lock.EnterWriteLock();
+                EnterWriteLock();
 
                 for (int i = 0; i < _buckets.Length; i++)
                 {
@@ -150,7 +150,7 @@ namespace PrometheusCore
             }
             finally
             {
-                _lock.ExitWriteLock();
+                ExitWriteLock();
             }
         }
         private class Bucket

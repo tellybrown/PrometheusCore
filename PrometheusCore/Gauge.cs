@@ -23,12 +23,12 @@ namespace PrometheusCore
             {
                 try
                 {
-                    _lock.EnterReadLock();
+                    EnterReadLock();
                     return _value;
                 }
                 finally
                 {
-                    _lock.ExitReadLock();
+                    ExitReadLock();
                 }
             }
         }
@@ -36,12 +36,12 @@ namespace PrometheusCore
         {
             try
             {
-                _lock.EnterWriteLock();
+                EnterWriteLock();
                 _value += increment;
             }
             finally
             {
-                _lock.ExitWriteLock();
+                ExitWriteLock();
             }
         }
         public void Dec(double decrement = 1.0)
@@ -52,12 +52,12 @@ namespace PrometheusCore
         {
             try
             {
-                _lock.EnterWriteLock();
+                EnterWriteLock();
                 _value = value;
             }
             finally
             {
-                _lock.ExitWriteLock();
+                ExitWriteLock();
             }
         }
     }

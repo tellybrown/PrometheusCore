@@ -6,7 +6,7 @@ namespace PrometheusCore.Collectors
 {
     public interface IQueryCollectors
     {
-        [CollectorRegistry("database_query_duration", "How long a specific query has taken to run", "service_name", "database_name", "query_name")]
+        [CollectorRegistry("database_query_duration_seconds", "How long a specific query has taken to run", "service_name", "database_name", "query_name")]
         [HistogramBuckets(.5, 1, 2, 3, 5, 10, 30, 60)]
         ICollectorBuilder<IHistogram> Duration { get; }
 
